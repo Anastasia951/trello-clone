@@ -1,0 +1,102 @@
+@import url(https://fonts.googleapis.com/css?family=Scada:regular,italic,700,700italic);
+$fontFamily: 'Scada';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+html,
+#root,
+.board-wrapper {
+  height: 100%;
+}
+body {
+  font-size: 1rem;
+  font-family: $fontFamily;
+  height: 100%;
+  overflow: hidden;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  font: inherit;
+  outline: none;
+}
+button {
+  background: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.header {
+  flex: 0 0 auto;
+  &__title {
+    text-align: center;
+  }
+}
+
+.column {
+  flex: 0 0 250px;
+  min-height: 50px;
+  background-color: #c2c2c2;
+  &__title {
+    background-color: chocolate;
+    padding: 0.5rem;
+  }
+  &__tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0.5rem;
+  }
+  &__task {
+    background-color: #fff;
+    padding: 0.5rem;
+  }
+  &__add-card {
+    padding: 0.5rem;
+    text-align: left;
+    width: 100%;
+    background-color: aqua;
+  }
+}
+.add-list {
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: deeppink;
+}
+
+.empty-card,
+.add-card {
+  flex: 0 0 250px;
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #c2c2c2;
+  }
+  &__actions {
+    .create-empty-list {
+      background-color: aqua;
+      margin-right: 1rem;
+    }
+    .close {
+      background-color: orangered;
+    }
+  }
+}
+
+.board {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  float: left;
+}
+.add-list {
+  flex: 0 0 250px;
+}
