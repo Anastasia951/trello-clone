@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid"
-import { ADD_TASK, CREATE_NEW_LIST, SWAP_COLUMNS, UPDATE_TASKS, UPDATE_TASKS_FROM_DIFFERENT_LISTS } from "../constants"
+import { ADD_TASK, CHANGE_TITLE, CREATE_NEW_LIST, SWAP_COLUMNS, UPDATE_TASKS, UPDATE_TASKS_FROM_DIFFERENT_LISTS } from "../constants"
 
 const initialState = {
   lists: [
@@ -99,6 +99,15 @@ export function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         lists: oldLists,
+      }
+    case CHANGE_TITLE:
+      const { newText, id } = payload
+      oldLists = [...state.lists]
+      const parentIdx = state.lists.findIndex(list => list.id === id)
+      oldLists[parentIdx].title = newText
+      return {
+        ...state,
+        lists: oldLists
       }
     default:
       return state

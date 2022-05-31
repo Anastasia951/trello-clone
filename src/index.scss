@@ -57,6 +57,14 @@ button {
   &__title {
     background-color: $headerColor;
     padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:hover {
+      .pencil {
+        visibility: visible;
+      }
+    }
   }
   &__tasks {
     display: flex;
@@ -125,4 +133,10 @@ button {
 }
 .add-list {
   flex: 0 0 250px;
+}
+.pencil {
+  content: '✎';
+  cursor: pointer;
+  color: #d3ffe8;
+  visibility: hidden;
 }

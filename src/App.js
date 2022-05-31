@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";

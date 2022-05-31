@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import Column from './Column'
 import { Droppable } from 'react-beautiful-dnd'
 import { useDispatch } from 'react-redux'
@@ -37,6 +37,7 @@ export default function Board({ lists }) {
                 list={list}
                 index={index}
                 addTask={addNewTask}
+                dispatch={dispatch}
               />
             ))}
             {isEditingEmptyList ? (
