@@ -7,7 +7,7 @@ export default function EmptyCardForm({ sendList, closeEditor }) {
     inputRef.current.focus()
   })
   function changeTitle(event) {
-    setTitle(event.target.value.trim())
+    setTitle(event.target.value)
   }
   function createList() {
     if (title.trim()) {

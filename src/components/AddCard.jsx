@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 export default function AddCard({ addTask, parentId, closeEditor }) {
   const [cardText, setCardText] = useState('')
   function changeCardText(event) {
-    setCardText(event.target.value.trim())
+    setCardText(event.target.value)
   }
   function onEnterPress(event) {
     if (event.key === 'Enter') addNewTask()

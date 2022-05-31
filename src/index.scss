@@ -1,10 +1,17 @@
 @import url(https://fonts.googleapis.com/css?family=Scada:regular,italic,700,700italic);
 $fontFamily: 'Scada';
+$headerColor: #a497e4;
+$columnColor: #e4e4e4;
+$taskColor: #f4d6db;
+$addCardBtnColor: #a497e4;
+$addListBtnColor: #a497e4;
+$closeBtnColor: #ff8cfd;
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   border: none;
+  outline: none;
 }
 a {
   text-decoration: none;
@@ -20,6 +27,7 @@ body {
   font-family: $fontFamily;
   height: 100%;
   overflow: hidden;
+  background: linear-gradient(90deg, #aea4e3, #d3ffe8);
 }
 #root {
   display: flex;
@@ -36,6 +44,7 @@ button {
 }
 .header {
   flex: 0 0 auto;
+  padding: 1rem 0;
   &__title {
     text-align: center;
   }
@@ -43,10 +52,10 @@ button {
 
 .column {
   flex: 0 0 250px;
-  min-height: 50px;
-  background-color: #c2c2c2;
+  background-color: $columnColor;
+  min-height: 60px;
   &__title {
-    background-color: chocolate;
+    background-color: $headerColor;
     padding: 0.5rem;
   }
   &__tasks {
@@ -54,48 +63,65 @@ button {
     flex-direction: column;
     gap: 0.5rem;
     margin: 0.5rem;
+    margin-bottom: 0;
   }
   &__task {
     background-color: #fff;
     padding: 0.5rem;
   }
   &__add-card {
+    margin-top: 0.5rem;
     padding: 0.5rem;
     text-align: left;
     width: 100%;
-    background-color: aqua;
+    background-color: $addCardBtnColor;
   }
 }
 .add-list {
   cursor: pointer;
   padding: 0.5rem;
-  background-color: deeppink;
+  background-color: $addListBtnColor;
 }
 
 .empty-card,
 .add-card {
   flex: 0 0 250px;
+  background-color: $columnColor;
+  padding: 0.5rem;
   input {
     width: 100%;
     padding: 0.5rem;
-    background-color: #c2c2c2;
+    background-color: #fff;
   }
   &__actions {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    & > * {
+      flex: 0 0 50%;
+      padding: 0.5rem;
+    }
     .create-empty-list {
-      background-color: aqua;
-      margin-right: 1rem;
+      background-color: $addListBtnColor;
+    }
+    .add-card-btn {
+      background-color: $addCardBtnColor;
     }
     .close {
-      background-color: orangered;
+      background-color: $closeBtnColor;
     }
   }
 }
 
+.board-wrapper {
+  overflow: auto;
+  padding: 1rem;
+}
 .board {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
-  float: left;
 }
 .add-list {
   flex: 0 0 250px;
