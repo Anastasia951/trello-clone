@@ -8,11 +8,8 @@ export default function Column({ list, index, addTask, dispatch }) {
   const [isEditingTask, setIsEditingTask] = useState(false)
   const [isEditingTitle, setIsEditingTitle] = useState(false)
   const [newTitle, setNewTitle] = useState(list.title)
-  function addNewTask() {
-    setIsEditingTask(true)
-  }
-  function closeEditor() {
-    setIsEditingTask(false)
+  function toggleIsEditingTask() {
+    setIsEditingTask(state => !state)
   }
   function toggleTitle() {
     setIsEditingTitle(state => !state)
@@ -53,15 +50,15 @@ export default function Column({ list, index, addTask, dispatch }) {
               </div>
             </h3>
           )}
-          <TaskList tasks={list.tasks} listId={list.id} />
+          <TaskList tasks={list.tasks} listId={list.id} dispatch={dispatch} />
           {isEditingTask ? (
             <AddCard
               addTask={addTask}
               parentId={list.id}
-              closeEditor={closeEditor}
+              closeEditor={toggleIsEditingTask}
             />
           ) : (
-            <button className='column__add-card' onClick={addNewTask}>
+            <button className='column__add-card' onClick={toggleIsEditingTask}>
               + Add a card
             </button>
           )}

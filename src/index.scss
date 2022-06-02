@@ -54,7 +54,8 @@ button {
   flex: 0 0 250px;
   background-color: $columnColor;
   min-height: 60px;
-  &__title {
+  &__title,
+  &__task {
     background-color: $headerColor;
     padding: 0.5rem;
     display: flex;
@@ -76,6 +77,9 @@ button {
   &__task {
     background-color: #fff;
     padding: 0.5rem;
+    .pencil {
+      color: $headerColor;
+    }
   }
   &__add-card {
     margin-top: 0.5rem;
