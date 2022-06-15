@@ -1,7 +1,7 @@
 import React from 'react'
 import Task from './Task'
 import { Droppable } from 'react-beautiful-dnd'
-import { changeTask } from '../redux/actions/actions'
+import { changeTask, deleteTask } from '../redux/actions/actions'
 
 export default function TaskList({ tasks, listId, dispatch }) {
   const editTask = (taskId, text) => {

@@ -1,4 +1,4 @@
-import { SWAP_COLUMNS, UPDATE_TASKS, UPDATE_TASKS_FROM_DIFFERENT_LISTS, CREATE_NEW_LIST, ADD_TASK, CHANGE_TITLE, CHANGE_TASK } from "../constants"
+import { SWAP_COLUMNS, UPDATE_TASKS, UPDATE_TASKS_FROM_DIFFERENT_LISTS, CREATE_NEW_LIST, ADD_TASK, CHANGE_TITLE, CHANGE_TASK, DELETE_TITLE, DELETE_TASK } from "../constants"
 
 export const updateTasks = (tasks, id) => {
   return {
@@ -44,6 +44,19 @@ export const changeTitle = (newText, id) => {
 export const changeTask = (payload) => {
   return {
     type: CHANGE_TASK,
-    payload: payload,
+    payload
+  }
+}
+
+export const deleteTitle = (payload) => {
+  return {
+    type: DELETE_TITLE,
+    payload
+  }
+}
+export const deleteTask = (payload) => {
+  return {
+    type: DELETE_TASK,
+    payload
   }
 }

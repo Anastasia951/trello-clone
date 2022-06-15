@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { Draggable } from 'react-beautiful-dnd'
 
-export default function Task({ task, index, editTask }) {
+export default function Task({ task, index, editTask, removeTask }) {
   const editTaskHandler = () => {
-    // editTask(task.id)
     setIsEditingTask(state => !state)
   }
   const changeTask = event => {
@@ -49,8 +48,10 @@ export default function Task({ task, index, editTask }) {
             {...provided.dragHandleProps}
             ref={provided.innerRef}>
             {task.text}
-            <div className='pencil' onClick={editTaskHandler}>
-              ✎
+            <div className='column__actions'>
+              <div className='pencil' onClick={editTaskHandler}>
+                ✎
+              </div>
             </div>
             {provided.placeholder}
           </div>

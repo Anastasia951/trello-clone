@@ -1,11 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Scada:regular,italic,700,700italic);
 $fontFamily: 'Scada';
-$headerColor: #a497e4;
+$headerColor: #e4e4e4;
 $columnColor: #e4e4e4;
 $taskColor: #f4d6db;
-$addCardBtnColor: #a497e4;
-$addListBtnColor: #a497e4;
-$closeBtnColor: #ff8cfd;
+$addCardBtnColor: #cacaca;
+$addListBtnColor: #cacaca;
+$closeBtnColor: #a7a7a7;
+$background: #052155;
+$pencilColor: #555;
 * {
   margin: 0;
   padding: 0;
@@ -27,7 +29,7 @@ body {
   font-family: $fontFamily;
   height: 100%;
   overflow: hidden;
-  background: linear-gradient(90deg, #aea4e3, #d3ffe8);
+  background: $background;
 }
 #root {
   display: flex;
@@ -45,15 +47,21 @@ button {
 .header {
   flex: 0 0 auto;
   padding: 1rem 0;
+  color: white;
   &__title {
     text-align: center;
   }
 }
 
 .column {
+  max-width: 250px;
   flex: 0 0 250px;
   background-color: $columnColor;
-  min-height: 60px;
+  padding: 10px;
+  &__actions {
+    display: flex;
+    gap: 1rem;
+  }
   &__title,
   &__task {
     background-color: $headerColor;
@@ -62,7 +70,8 @@ button {
     justify-content: space-between;
     align-items: center;
     &:hover {
-      .pencil {
+      .pencil,
+      .trash {
         visibility: visible;
       }
     }
@@ -71,14 +80,14 @@ button {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin: 0.5rem;
-    margin-bottom: 0;
   }
   &__task {
     background-color: #fff;
     padding: 0.5rem;
-    .pencil {
-      color: $headerColor;
+    overflow: hidden;
+    .pencil,
+    .trash {
+      color: $pencilColor;
     }
   }
   &__add-card {
@@ -125,7 +134,10 @@ button {
     }
   }
 }
-
+.add-card {
+  padding: 0;
+  margin-top: 0.5rem;
+}
 .board-wrapper {
   overflow: auto;
   padding: 1rem;
@@ -138,9 +150,9 @@ button {
 .add-list {
   flex: 0 0 250px;
 }
-.pencil {
-  content: '✎';
+.pencil,
+.trash {
   cursor: pointer;
-  color: #d3ffe8;
+  color: $pencilColor;
   visibility: hidden;
 }
